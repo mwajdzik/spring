@@ -4,8 +4,6 @@ import SockJS from 'sockjs-client';
 import MessageBar from "./message_bar";
 import MessageList from "./message_list";
 
-// https://medium.com/@igorkosandyak/yes-you-can-easily-achieve-this-by-creating-some-sort-of-private-channels-rooms-c7b16776f1ff
-
 export default class App extends Component {
 
     constructor(props) {
@@ -31,6 +29,7 @@ export default class App extends Component {
 
     sendMessage(message) {
         this.stompClient.send("/app/send/message", {}, message);
+        this.stompClient.send("/app/send/message/private/room23", {}, message);
     }
 
     render() {
