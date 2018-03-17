@@ -5,7 +5,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Controller
 public class WebSocketController {
@@ -15,6 +15,6 @@ public class WebSocketController {
 
     @MessageMapping("/send/message")
     public void onReceiveMessage(String message) {
-        this.template.convertAndSend("/chat", LocalDate.now() + ": " + message);
+        this.template.convertAndSend("/chat", LocalDateTime.now() + ": " + message);
     }
 }
