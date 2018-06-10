@@ -28,4 +28,12 @@ Reservation Client:
         http://localhost:8000/reservations                          - an actual service
         will be available at
         http://localhost:9999/reservation-service/reservations      - an edge service proxied with Zuul to the actual one
-        reload - round-robin 8000/8001 
+        reload - round-robin 8000/8001
+        
+    Feign is a declarative web service client.
+    It makes writing web service clients easier. 
+    To use Feign create an interface and annotate it.
+        check: http://localhost:9999/reservations/names 
+        
+    Hysterix
+        kill Reservation Service and check http://localhost:9999/reservations/names 
