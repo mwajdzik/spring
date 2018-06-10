@@ -36,4 +36,12 @@ Reservation Client:
         check: http://localhost:9999/reservations/names 
         
     Hysterix
-        kill Reservation Service and check http://localhost:9999/reservations/names 
+        kill Reservation Service and check http://localhost:9999/reservations/names
+
+    RabbitMQ
+        brew services start rabbitmq
+        check: http://localhost:15672
+
+        Add a new name:
+            curl -d'{"reservationName": "Ewa"}' -H'content-type: application/json' http://localhost:9999/reservations
+        Kill the Reservation Service, add a few new names, check the queue, start Reservation Service and check if the names were added.
