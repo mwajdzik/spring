@@ -33,12 +33,12 @@ public class ReservationServiceApplication {
 @RefreshScope
 class MessageRestController {
 
-    @Value("${message}")
-    private String message;
+    @Value("${message}") private String message;
+    @Value("${server.port}") private String port;
 
     @GetMapping("/message")
     public String read() {
-        return message;
+        return message + " (" + port + ")";
     }
 }
 

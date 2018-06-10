@@ -18,6 +18,8 @@ Reservation Service:
     change the message and refresh client's veriables with: 
         curl -X POST http://localhost:8000/actuator/refresh 
 
+    start one more instance with -Dserver.port=8001
+
 
 Reservation Client:
     an edge service, all the devices (mobiles, computers, ...) will connect to it
@@ -26,3 +28,4 @@ Reservation Client:
         http://localhost:8000/reservations                          - an actual service
         will be available at
         http://localhost:9999/reservation-service/reservations      - an edge service proxied with Zuul to the actual one
+        reload - round-robin 8000/8001 
