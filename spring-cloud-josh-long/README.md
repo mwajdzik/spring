@@ -8,7 +8,13 @@ Config Server:
 
 Eureka Registration Service:
     check: http://localhost:8761/
-    
+ 
+
+Hystrix Dashboard:
+    check: http://localhost:8010/hystrix
+    paste: http://localhost:9999/actuator/hystrix.stream
+    see: https://dzone.com/articles/spring-cloud-with-turbine (to join multiple streams)
+        
 
 Reservation Service:
     check: registered at Eureka
@@ -45,3 +51,9 @@ Reservation Client:
         Add a new name:
             curl -d'{"reservationName": "Ewa"}' -H'content-type: application/json' http://localhost:9999/reservations
         Kill the Reservation Service, add a few new names, check the queue, start Reservation Service and check if the names were added.
+
+
+Distribute Tracing:
+
+    TODO
+    https://www.youtube.com/watch?v=5q8B6lYhFvE&t=3502s
