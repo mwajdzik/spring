@@ -48,12 +48,17 @@ Reservation Client:
         brew services start rabbitmq
         check: http://localhost:15672
 
-        Add a new name:
-            curl -d'{"reservationName": "Ewa"}' -H'content-type: application/json' http://localhost:9999/reservations
+        Add a new name: curl -d'{"reservationName": "Ewa"}' -H'content-type: application/json' http://localhost:9999/reservations
         Kill the Reservation Service, add a few new names, check the queue, start Reservation Service and check if the names were added.
 
 
-Distribute Tracing:
+Distribute Tracing with Sleuth (distributed tracing abstraction via logs)
+    check: https://dzone.com/articles/microservices-part-6-distributed-tracing-with-spri
+    
+    [appname,traceId,spanId,exportable]
+    Add a new name: curl -d'{"reservationName": "Ewa"}' -H'content-type: application/json' http://localhost:9999/reservations
+    2018-06-11 20:01:50.016  INFO [reservation-client,c96c06c272d1477b,c96c06c272d1477b,false] 34091 --- [nio-9999-exec-1] o.a.s.r.ReservationApiGateway            : Writing reservation Reservation(reservationName=Ewa)
+    2018-06-11 20:01:50.087  INFO [reservation-service,c96c06c272d1477b,6db9eb11e44e2ea7,false] 34019 --- [vations-group-1] o.a.s.reservation.ReservationProcessor   : New reservation Ewa saved
 
-    TODO
-    https://www.youtube.com/watch?v=5q8B6lYhFvE&t=3502s
+
+Distribute Tracing Platform Zipkin

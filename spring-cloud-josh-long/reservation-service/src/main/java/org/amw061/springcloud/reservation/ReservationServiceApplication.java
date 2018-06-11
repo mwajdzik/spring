@@ -1,6 +1,7 @@
 package org.amw061.springcloud.reservation;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -42,6 +43,7 @@ interface ReservationChannels {
     SubscribableChannel input();
 }
 
+@Slf4j
 @SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @MessageEndpoint
 class ReservationProcessor {
@@ -52,6 +54,7 @@ class ReservationProcessor {
     @ServiceActivator(inputChannel = "input")
     public void onNewReservation(String reservationName) {
         reservationRepository.save(new Reservation(reservationName));
+        log.info("New reservation {} saved", reservationName);
     }
 }
 

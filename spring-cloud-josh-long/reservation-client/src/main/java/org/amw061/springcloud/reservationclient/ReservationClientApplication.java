@@ -2,6 +2,7 @@ package org.amw061.springcloud.reservationclient;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -64,6 +65,7 @@ class Reservation {
     private String reservationName;
 }
 
+@Slf4j
 @SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @RestController
 @RequestMapping("/reservations")
@@ -93,6 +95,7 @@ class ReservationApiGateway {
 
     @PostMapping
     public void write(@RequestBody Reservation reservation) {
+        log.info("Writing reservation {}", reservation);
         reservationWriter.write(reservation.getReservationName());
     }
 }
