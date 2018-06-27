@@ -2,6 +2,7 @@ package org.amw061.spring.microservices.roomservices;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -13,8 +14,9 @@ import static springfox.documentation.builders.PathSelectors.any;
 import static springfox.documentation.builders.RequestHandlerSelectors.basePackage;
 import static springfox.documentation.spi.DocumentationType.SWAGGER_2;
 
-@SpringBootApplication
 @EnableSwagger2
+@EnableDiscoveryClient
+@SpringBootApplication
 public class RoomServicesApplication {
 
     public static void main(String[] args) {
