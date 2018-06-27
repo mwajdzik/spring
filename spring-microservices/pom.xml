@@ -21,6 +21,8 @@
 		<module>config-server</module>
 		<module>eureka-server</module>
 		<module>app-services/room-services</module>
+		<module>app-services/guest-services</module>
+		<module>app-services/reservation-services</module>
 		<module>app-services/reservation-business-services</module>
 	</modules>
 </project>
