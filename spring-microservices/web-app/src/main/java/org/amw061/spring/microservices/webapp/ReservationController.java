@@ -13,7 +13,7 @@ import java.util.Date;
 
 import static org.apache.commons.lang.StringUtils.isBlank;
 
-// http://localhost:8600/?date=2017-01-01
+// http://localhost:8600/reservations?date=2017-01-01
 
 @Controller
 public class ReservationController {

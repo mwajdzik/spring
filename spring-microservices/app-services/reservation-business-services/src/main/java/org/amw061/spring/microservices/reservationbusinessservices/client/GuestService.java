@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient("GUEST-SERVICES")
+@FeignClient(value = "GUEST-SERVICES", fallback = GuestServiceFallbackImpl.class)
 public interface GuestService {
 
     @GetMapping(value = "/guests")
