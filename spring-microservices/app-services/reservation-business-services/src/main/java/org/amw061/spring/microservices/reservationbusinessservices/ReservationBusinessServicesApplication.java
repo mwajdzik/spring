@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
@@ -17,9 +18,14 @@ import static springfox.documentation.builders.PathSelectors.any;
 import static springfox.documentation.builders.RequestHandlerSelectors.basePackage;
 import static springfox.documentation.spi.DocumentationType.SWAGGER_2;
 
+// http://localhost:8500/hystrix
+//      http://localhost:8500/actuator/hystrix.stream
+//          management.endpoints.web.exposure.include=*
+
 @EnableFeignClients
 @EnableDiscoveryClient
 @EnableCircuitBreaker
+@EnableHystrixDashboard
 @SpringBootApplication
 public class ReservationBusinessServicesApplication {
 
