@@ -24,5 +24,6 @@
 		<module>app-services/guest-services</module>
 		<module>app-services/reservation-services</module>
 		<module>app-services/reservation-business-services</module>
+		<module>web-app</module>
 	</modules>
 </project>
